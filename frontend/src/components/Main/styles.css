@@ -1,0 +1,92 @@
+.search-box{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 20px;
+  margin: 10px;
+  padding-top: 20px;
+  padding-left: 20px;
+  padding-right: 20px;
+  background-color: #9f9d9d;
+  width: 80%;
+  height: 80%;
+  border-radius: 8px;
+}
+
+.character-details{
+  display: flex;
+}
+
+.image{
+  border-radius: 5px;
+  border-color: #505050;
+  border: turquoise 3px solid;
+}
+
+.name{
+  color: turquoise;
+}
+
+.class{
+  color: turquoise;
+}
+
+.realm{
+  color: turquoise;
+}
+
+.guild{
+  color: #f3e306;
+}
+
+.server-form{
+  border-radius: 5px;
+  margin-top: 10px;
+  margin-right: 10px;
+}
+
+.realm-form{
+  border-radius: 5px;
+  border-color: #9f9d9d;
+  margin-top: 10px;
+  margin-right: 10px;
+}
+
+.name-form{
+  border-radius: 5px;
+  border-color: #9f9d9d;
+  margin-top: 10px;
+  margin-right: 10px;
+}
+
+.button{
+  border-radius: 5px;
+  color: white;
+  background-color: royalblue
+}
+
+.character-data{
+  display: inline-flex;
+  justify-content: space-evenly;
+  width: 80%;
+}
+
+.data-box{
+  display: flex;
+  justify-content: left;
+  border-radius: 5px;
+  background-color: #9f9d9d;
+  padding:5px;
+  margin: 5px;
+  width: 40%;
+}
+
+.pvp-box{
+  display: flex;
+  justify-content: center;
+  border-radius: 5px;
+  background-color: #9f9d9d;
+  padding:5px;
+  margin: 5px;
+  width: 40%;
+}
