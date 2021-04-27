@@ -1,17 +1,23 @@
 .search-box{
   display: flex;
   justify-content: center;
-  align-items: center;
-  margin-top: 20px;
-  margin: 10px;
-  padding-top: 20px;
-  padding-left: 20px;
-  padding-right: 20px;
-  background-color: #9f9d9d;
+  padding: 20px;
+  background-color: #6384b4;;
   width: 80%;
-  height: 80%;
   border-radius: 8px;
+  border: white 3px solid;
 }
+
+.search-container{
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  flex-direction: column;
+  height: 100vh;
+  width: 100%;
+  padding-top: 10px;
+}
+
 
 .character-details{
   display: flex;
@@ -68,25 +74,22 @@
 .character-data{
   display: inline-flex;
   justify-content: space-evenly;
-  width: 80%;
+  width: 84%;
+  margin-top: 10px;
+  margin: 10px;
+  padding-top: 10px;
+  padding-left: 10px;
+  padding-right: 10px;
+  padding-bottom: 10px;
 }
 
 .data-box{
   display: flex;
   justify-content: left;
-  border-radius: 5px;
-  background-color: #9f9d9d;
+  border-radius: 7px;
+  background-color: #6384b4;
   padding:5px;
   margin: 5px;
   width: 40%;
-}
-
-.pvp-box{
-  display: flex;
-  justify-content: center;
-  border-radius: 5px;
-  background-color: #9f9d9d;
-  padding:5px;
-  margin: 5px;
-  width: 40%;
+  border: white 3px solid;
 }

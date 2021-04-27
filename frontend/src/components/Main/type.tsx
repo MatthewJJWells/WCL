@@ -6,12 +6,13 @@ export interface RaiderioData {
   region: string;
   guild: {name: string};
   gear: {item_level_equipped: number};
+  profile_url: string;
   mythic_plus_scores_by_season: [{scores: {all: number}}];
   mythic_plus_best_runs: [{
     dungeon: string;
     mythic_level: number;
   }];
-  raid_progression: {'castle-nathria': {summary: string}},
+  raid_progression: {'castle-nathria': {summary: string}};
 };
 
 export interface PVPData {
@@ -20,21 +21,21 @@ export interface PVPData {
     season_match_statistics: {
       won: number;
       lost: number;
-    }
+    };
   };
   threes: {
     rating: number;
     season_match_statistics: {
       won: number;
       lost: number;
-    }
+    };
   };
   rbgs: {
     rating: number;
     season_match_statistics: {
       won: number;
       lost: number;
-    }
+    };
   };
 };
 

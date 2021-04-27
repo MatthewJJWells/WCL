@@ -1,7 +1,8 @@
 .page{
   text-align: center;
-  background-color: #383333;
   justify-content: space-around;
+  background-image: url('../images/background.png');
   height: 100%;
+  width: 100%;
   font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
 }

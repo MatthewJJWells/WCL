@@ -1,0 +1,66 @@
+.overall-all{
+  display: flex;
+  width: 100%;
+  flex-direction: column;
+}
+
+.rio-title{
+  font-size: 30px;
+  font-weight: 700;
+  margin: 3px;
+  border-bottom: black 2px solid;
+}
+
+.overall-score{
+  display: flex;
+  color: white;
+  padding-left: 10px;
+}
+
+.rio-box{
+  display: flex;
+  width: 100%;
+  flex-direction: column;
+  justify-content: left;
+}
+
+.bk-all{
+  display: flex;
+  justify-content: left;
+  flex-direction: column;
+}
+
+.bk-title{
+  display: flex;
+  color: white;
+  padding-bottom: 10px;
+  padding-left: 10px;
+  margin: 0px;
+}
+
+.dungeon{
+  display: flex;
+  flex-direction: row;
+  padding-left: 10px;
+  padding-right: 10px;
+  justify-content: space-between;
+  color: white;
+}
+
+.individual-dun{
+  display: flex;
+}
+
+.individual-lvl{
+  display: flex;
+  padding-left: 40px;
+  height: 100%;
+}
+
+.rio-link{
+  width: 100%;
+  display: flex;
+  padding-top: 10px;
+  padding-bottom: 5px;
+  justify-content: center;
+}

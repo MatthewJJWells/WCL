@@ -1,0 +1,19 @@
+.logs-overall{
+  display: flex;
+  width: 100%;
+  flex-direction: column;
+}
+
+.raidprog-title{
+  font-size: 30px;
+  font-weight: 700;
+  margin: 3px;
+  border-bottom: black 2px solid;
+}
+
+.prog{
+  font-size: 30px;
+  font-weight: 700;
+  margin: 3px;
+  color: white;
+}

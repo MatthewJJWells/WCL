@@ -1,11 +1,10 @@
-/* eslint-disable jsx-a11y/alt-text */
 import React, {useState} from 'react';
 import './styles.css';
-import {Character} from './type'
-import apiCalls from './apiCalls'
-import Rio from './Rio/index'
-import PVP from './PVP/index'
-import Logs from './Logs/index'
+import {Character} from './type';
+import apiCalls from './apiCalls';
+import Rio from './Rio/index';
+import PVP from './PVP/index';
+import Logs from './Logs/index';
 
 const Main: React.FC<{}> = () => {
 
@@ -14,17 +13,16 @@ const Main: React.FC<{}> = () => {
   const [searchServer, setSearchServer] = useState('eu');
   const [character, setCharacter] = useState<Character>();
 
-
   function handleChangeName(e:{target:{value:string}}) {
-    setSearchName(e.target.value)
+    setSearchName(e.target.value);
   };
 
   function handleChangeRealm(e:{target:{value:string}}) {
-    setSearchRealm(e.target.value)
+    setSearchRealm(e.target.value);
   }
 
   function handleChangeServer(e:{target:{value:string}}) {
-    setSearchServer(e.target.value)
+    setSearchServer(e.target.value);
   }
 
   function handleSubmit (e:React.SyntheticEvent) {
@@ -35,32 +33,29 @@ const Main: React.FC<{}> = () => {
       realm: searchRealm,
       name: searchName
     })
-      .then(data => setCharacter(data))
+      .then(data => setCharacter(data));
     setSearchName('');
-    setSearchRealm('')
+    setSearchRealm('');
   };
 
   return (
-    <div>
+    <div className='search-container'>
       <div className='search-box'>
-        {!character && <form onSubmit={handleSubmit}>
-          <label className='server-label'>Server: </label>
+        {!character && <form className='submit-form' onSubmit={handleSubmit}>
+          <p className='server-label'>Search for a Character: </p>
           <select className='server-form' id="servers" onChange={handleChangeServer}>
             <option className='option-eu' value='eu'>Europe</option>
             <option className='option-us' value='us'>United States</option>
           </select>
-          <label className='realm-label'>Realm: </label>
-          <input className='realm-form' form="text" value={searchRealm} placeholder='e.g. Tarren-Mill' onChange={handleChangeRealm}></input>
-          <label className='name-label'>Character Name: </label>
-          <input className='name-form' form="text" value={searchName} placeholder='Name...' onChange={handleChangeName}></input>
+          <input className='realm-form' form="text" value={searchRealm} placeholder='Server name...' onChange={handleChangeRealm}></input>
+          <input className='name-form' form="text" value={searchName} placeholder='Character name...' onChange={handleChangeName}></input>
           <button type='submit' className='button'>Search</button>
         </form>}
           {character && <div className='character-details'>
-            <img className='image' src={character.thumbnail_url}/>
-            <p className='name'>{character.name} - {character.realm}</p>
-            <p className='class'>{character.class}</p>
+            <img className='image' src={character.thumbnail_url} alt='Character'/>
+            <p className='name'>{character.name}  -  {character.realm}  -  {character.class}</p>
+            {character.gear && <p className='ilvl'>Item Level: {character.gear.item_level_equipped}</p>}
             {character.guild && <p className='guild'>{"<"}{character.guild.name}{">"}</p>}
-            <p className='ilvl'>Item Level {character.gear.item_level_equipped}</p>
           </div>}
       </div>
       {character && 

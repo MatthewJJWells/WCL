@@ -1,23 +1,43 @@
 .nav-bar{
   display: flex;
   flex-direction: row;
-  background: #505050;
-  height: 70px;
+  justify-content: space-between;
+  background: #0f223f;
+  height: 80px;
+  border-top: white 3px solid;
+  border-bottom: white 3px solid;
+}
+
+.logo{
+  margin-right: 5px
+}
+
+.logo-name{
+  display: flex;
 }
 
 .title{
   display: flex;
-  justify-content: center;
-  font-size: 30px;
+  align-items: center;
+  margin: 0;
+  height: 100%;
+  font-size: 40px;
   font-weight: 700;
   font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif; 
   color: rgb(255, 255, 255);
 }
 
+.sign-in{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-right: 30px;
+}
+
 .sign-up{
   border-radius: 5px;
   height: 40%;
-  width: 70px
+  width: 70px;
 }
 
 .login{
