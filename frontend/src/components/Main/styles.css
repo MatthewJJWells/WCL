@@ -1,9 +1,10 @@
 .search-box{
   display: flex;
   justify-content: center;
-  padding: 20px;
-  background-color: #6384b4;;
-  width: 80%;
+  align-items: center;
+  padding-top: 15px;
+  background-image: url(../../images/background3.jpg);
+  width: 65%;
   border-radius: 8px;
   border: white 3px solid;
 }
@@ -18,20 +19,24 @@
   padding-top: 10px;
 }
 
+.server-label{
+  font-size: xx-large
+}
 
 .character-details{
   display: flex;
+  justify-content: space-around;
 }
 
 .image{
   border-radius: 5px;
   border-color: #505050;
-  border: turquoise 3px solid;
+  border: white 3px solid;
+  margin-right: 35px;
+  margin-bottom: 25px;
 }
 
-.name{
-  color: turquoise;
-}
+
 
 .class{
   color: turquoise;
@@ -42,54 +47,199 @@
 }
 
 .guild{
+  display: flex;
   color: #f3e306;
+  margin-right: 5px;
+}
+
+.submit-form{
+  margin-bottom: 10px;
 }
 
 .server-form{
+  font-size: large;
+  width: 30%;
+  height: 40%;
+  border:black 1px solid;
   border-radius: 5px;
   margin-top: 10px;
   margin-right: 10px;
 }
 
 .realm-form{
+  font-size: large;
+  width: 30%;
+  height: 40%;
+  border:black 1px solid;
   border-radius: 5px;
-  border-color: #9f9d9d;
   margin-top: 10px;
   margin-right: 10px;
 }
 
 .name-form{
+  font-size: large;
+  width: 30%;
+  height: 40%;
+  border:black 1px solid;
   border-radius: 5px;
-  border-color: #9f9d9d;
   margin-top: 10px;
   margin-right: 10px;
 }
 
 .button{
+  margin-top: 10px;
+  border:white 1px solid;
   border-radius: 5px;
   color: white;
-  background-color: royalblue
+  background-color: royalblue;
+  font-size: large;
+  width: 20%;
+  height: 30%;
+}
+
+.all-charinfo{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 .character-data{
   display: inline-flex;
   justify-content: space-evenly;
   width: 84%;
-  margin-top: 10px;
-  margin: 10px;
-  padding-top: 10px;
+  margin: 4px;
   padding-left: 10px;
   padding-right: 10px;
-  padding-bottom: 10px;
 }
 
 .data-box{
   display: flex;
   justify-content: left;
   border-radius: 7px;
-  background-color: #6384b4;
-  padding:5px;
+  background-image: url(../../images/background3.jpg);
+  padding-right:5px;
   margin: 5px;
   width: 40%;
   border: white 3px solid;
+}
+
+.guild-gear {
+  display: flex;
+  padding-left: 4px;
+  padding-right: 4px;
+  margin-bottom: 4px;
+  border: white 2px solid;
+  border-radius: 5px;
+  background: #4d4d4d;
+}
+
+.ilvl{
+  display: flex;
+  color: white;
+}
+
+.back-button{
+  width: 80px;
+  height: 40px;
+  margin-left: 35px;
+  color: white;
+  background-color: royalblue;
+  border: white 2px solid;
+  border-radius: 5px;
+}
+
+.Monk{
+  color: #00FF96;
+  background-color: #4d4d4d;
+  border: white 2px solid;
+  border-radius: 4px;
+  padding: 2px;
+}
+
+.Paladin{
+  color: #F58CBA;
+  background-color: rgb(77, 77, 77);
+  border: white 2px solid;
+  border-radius: 4px;
+  padding: 2px;
+}
+
+.Warrior{
+  color: #C79C6E;
+  background-color: rgb(77, 77, 77);
+  border: white 2px solid;
+  border-radius: 4px;
+  padding: 2px;
+}
+
+.Death{
+  color: #C41F3B;
+  background-color: rgb(77, 77, 77);
+  border: white 2px solid;
+  border-radius: 4px;
+  padding: 2px;
+}
+
+.Priest{
+  color: #FFFFFF;
+  background-color: rgb(77, 77, 77);
+  border: white 2px solid;
+  border-radius: 4px;
+  padding: 2px;
+}
+
+.Mage{
+  color: #69CCF0;
+  background-color: rgb(77, 77, 77);
+  border: white 2px solid;
+  border-radius: 4px;
+  padding: 2px;
+}
+
+.Warlock{
+  color: #9482C9;
+  background-color: rgb(77, 77, 77);
+  border: white 2px solid;
+  border-radius: 4px;
+  padding: 2px;
+}
+
+.Hunter{
+  color: #ABD473;
+  background-color: rgb(77, 77, 77);
+  border: white 2px solid;
+  border-radius: 4px;
+  padding: 2px;
+}
+
+.Demon{
+  color: #A330C9;
+  background-color: rgb(77, 77, 77);
+  border: white 2px solid;
+  border-radius: 4px;
+  padding: 2px;
+}
+
+.Rogue{
+  color: #FFF569;
+  background-color: rgb(77, 77, 77);
+  border: white 2px solid;
+  border-radius: 4px;
+  padding: 2px;
+}
+
+.Shaman{
+  color: #0070DE;
+  background-color: rgb(77, 77, 77);
+  border: white 2px solid;
+  border-radius: 4px;
+  padding: 2px;
+}
+
+.Druid{
+  color: #FF7D0A;
+  background-color: rgb(77, 77, 77);
+  border: white 2px solid;
+  border-radius: 4px;
+  padding: 2px;
 }

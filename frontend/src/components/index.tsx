@@ -5,14 +5,12 @@ import Main from './Main/index';
 
 const Page: React.FC<{}> = () => {
 
-  return (
-    <div className='page'>
-      <div className='background'>
-        <NavBar></NavBar>
-        <Main></Main>
-      </div>
-    </div>
-  );
+	return (
+		<div className='page'>
+			<NavBar></NavBar>
+			<Main></Main>
+		</div>
+	);
 };
 
 export default Page;

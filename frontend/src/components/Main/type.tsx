@@ -7,13 +7,14 @@ export interface RaiderioData {
   guild: {name: string};
   gear: {item_level_equipped: number};
   profile_url: string;
+  statusCode: string;
   mythic_plus_scores_by_season: [{scores: {all: number}}];
   mythic_plus_best_runs: [{
     dungeon: string;
     mythic_level: number;
   }];
   raid_progression: {'castle-nathria': {summary: string}};
-};
+}
 
 export interface PVPData {
   twos: {
@@ -37,6 +38,6 @@ export interface PVPData {
       lost: number;
     };
   };
-};
+}
 
 export type Character = RaiderioData & PVPData;

@@ -35,12 +35,15 @@
 }
 
 .sign-up{
+  border: black 2px solid;
   border-radius: 5px;
   height: 40%;
   width: 70px;
+  margin-right: 5px;
 }
 
 .login{
+  border: white 2px solid;
   border-radius: 5px;
   color: white;
   background-color: royalblue;

@@ -12,8 +12,9 @@
 }
 
 .prog{
+  padding-top: 30px;
   font-size: 30px;
   font-weight: 700;
   margin: 3px;
-  color: white;
+  color: black;
 }
