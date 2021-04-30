@@ -20,7 +20,7 @@ it('renders correctly', () => {
 	act(() => {
 		render(<NavBar/>, container);
 	});
-	expect(container.textContent).toBe('');
+	expect(document.querySelector('.title').textContent).toBe('Warcraft Lookup');
 });
 
 export {};
