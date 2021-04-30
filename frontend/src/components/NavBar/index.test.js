@@ -1,6 +1,7 @@
 import React from 'react';
 import NavBar from './index';
 import { render, unmountComponentAtNode } from 'react-dom';
+import { act } from 'react-dom/test-utils';
 
 let container = null;
 beforeEach(() => {
@@ -16,9 +17,10 @@ afterEach(() => {
 });
 
 it('renders correctly', () => {
-
-	render(<NavBar/>, container);
-  
+	act(() => {
+		render(<NavBar/>, container);
+	});
+	expect(container.textContent).tobe("");
 });
 
 export {};
