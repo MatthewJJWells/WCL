@@ -20,7 +20,7 @@ it('renders correctly', () => {
 	act(() => {
 		render(<NavBar/>, container);
 	});
-	expect(container.textContent).tobe("");
+	expect(container.textContent).toBe('');
 });
 
 export {};
