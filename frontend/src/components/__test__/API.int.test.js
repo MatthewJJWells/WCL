@@ -2,8 +2,8 @@
 // import React from 'react';
 import { unmountComponentAtNode } from 'react-dom';
 // import Main from '../Main/index';
-import * as raiderMocks from './mocks.RaiderAPI';
-import { fetchRaiderioData } from '../Main/apiCalls';
+// import * as raiderMocks from './mocks.RaiderAPI';
+// import { fetchRaiderioData } from '../Main/apiCalls';
 
 
 let container = null;
@@ -20,7 +20,7 @@ afterEach(() => {
 
 // Case 1: Test that correct input returns correct data from fetchRaiderioData
 it('correctly returns data from fetchRaiderioData', async () => {
-	const raiderdata = await fetchRaiderioData()
+	// const raiderdata = await fetchRaiderioData()
 
 
 });
