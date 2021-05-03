@@ -22,7 +22,8 @@ export default async function apiCalls(searchDetails: SearchDetails): Promise<Ch
 async function fetchRaiderioData(searchDetails: SearchDetails): Promise<RaiderioData|undefined> {
 	return fetch('https://raider.io/api/v1/characters/profile?region='+searchDetails.server+'&realm='+searchDetails.realm+'&name='+searchDetails.name+'&fields=gear%2Cguild%2Cmythic_plus_scores_by_season%3Acurrent%2Cmythic_plus_best_runs%2Craid_progression')
 		.then(response => response.json())
-		.then(data => data);
+		.then(data => data)
+		.catch(error => console.error(error));
 }
 
 async function fetchAuthToken():Promise<any>{
