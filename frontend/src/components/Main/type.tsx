@@ -16,28 +16,24 @@ export interface RaiderioData {
   raid_progression: {'castle-nathria': {summary: string}};
 }
 
-export interface PVPData {
-  twos: {
-    rating: number;
-    season_match_statistics: {
-      won: number;
-      lost: number;
-    };
-  };
-  threes: {
-    rating: number;
-    season_match_statistics: {
-      won: number;
-      lost: number;
-    };
-  };
-  rbgs: {
-    rating: number;
-    season_match_statistics: {
-      won: number;
-      lost: number;
-    };
-  };
+export interface MatchStats {
+	rating: number;
+	season_match_statistics: {
+		won: number;
+		lost: number;
+	}
 }
 
-export type Character = RaiderioData & PVPData;
+export interface PVPData {
+  twos: MatchStats;
+  threes: MatchStats;
+  rbgs: MatchStats;
+}
+
+export interface SearchDetails {
+  server: string;
+  realm: string;
+  name: string;
+}
+
+export type Character = RaiderioData & PVPData & MatchStats & SearchDetails;
