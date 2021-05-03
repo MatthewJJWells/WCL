@@ -1,8 +1,10 @@
-import { render } from '@testing-library/react';
-import React from 'react';
+// import { render } from '@testing-library/react';
+// import React from 'react';
 import { unmountComponentAtNode } from 'react-dom';
-import Main from '../Main/index';
-// import APIMocks from './mocks.RaiderAPI';
+// import Main from '../Main/index';
+import * as raiderMocks from './mocks.RaiderAPI';
+import { fetchRaiderioData } from '../Main/apiCalls';
+
 
 let container = null;
 beforeEach(() => {
@@ -16,9 +18,9 @@ afterEach(() => {
 	container = null;
 });
 
-// Case 1: Test that data returned from fetchRaiderioData function is correct
-it('correctly returns data from fetchRaiderioData', () => {
-	render(<Main/>, container);
+// Case 1: Test that correct input returns correct data from fetchRaiderioData
+it('correctly returns data from fetchRaiderioData', async () => {
+	const raiderdata = await fetchRaiderioData()
 
 
 });
