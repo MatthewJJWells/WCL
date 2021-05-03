@@ -26,7 +26,7 @@ async function fetchRaiderioData(searchDetails: SearchDetails): Promise<Raiderio
 		.catch(error => console.error(error));
 }
 
-async function fetchAuthToken():Promise<any>{
+async function fetchAuthToken():Promise<string>{
 	return fetch('https://us.battle.net/oauth/token', {
 		body: 'grant_type=client_credentials',
 		headers: {
