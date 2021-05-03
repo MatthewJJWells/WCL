@@ -39,7 +39,7 @@ async function fetchPVPData(searchDetails: SearchDetails): Promise<PVPData|undef
 	await fetch('https://us.battle.net/oauth/token', {
 		body: 'grant_type=client_credentials',
 		headers: {
-			Authorization: 'Basic YzQ3ZmQ3ZGJiZGFlNDIzYTkyZDM3YTZiNDk5MTk1ODY6U3RKRXlOQmtYMHJ6dVdpNFB1a1ZGVTZUcmlmODRvYmU=',
+			Authorization: 'Basic ' + process.env.REACT_APP_AUTH_KEY,
 			'Content-Type': 'application/x-www-form-urlencoded'
 		},
 		method: 'POST'
