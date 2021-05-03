@@ -16,8 +16,8 @@ afterEach(() => {
 	container = null;
 });
 
-// Case 1: All the data returned from the api is correct - does it get shown on the page?
-it('In the case that the data returned from the api is correct, is the information displayed correctly?.', () => {
+// Case 1: Test that data returned from fetchRaiderioData function is correct
+it('correctly returns data from fetchRaiderioData', () => {
 	render(<Main/>, container);
 
 
