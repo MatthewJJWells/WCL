@@ -36,4 +36,4 @@ export interface SearchDetails {
   name: string;
 }
 
-export type Character = RaiderioData & PVPData & MatchStats & SearchDetails;
+export type Character = RaiderioData & PVPData;

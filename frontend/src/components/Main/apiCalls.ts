@@ -1,25 +1,17 @@
 import { Character, PVPData, MatchStats, SearchDetails, RaiderioData} from './type';
 
-export default async function apiCalls(searchDetails: SearchDetails): Promise<Character|undefined> {
-	let characterData: Character|undefined;
-	await fetchRaiderioData(searchDetails)
-		.then(rioData => {
-			if (rioData) {
-				// @ts-ignore
-				characterData = {...rioData};
-			}
-		});
+export default async function apiCalls(searchDetails: SearchDetails): Promise<Character> {
 	const token = await fetchAuthToken();
+	const rioData: RaiderioData = await fetchRaiderioData(searchDetails);
 	const pvpData: PVPData = {
 		twos: await urlFunction(searchDetails, token, '2v2'),
 		threes: await urlFunction(searchDetails, token, '3v3'),
 		rbgs: await urlFunction(searchDetails, token, 'rbg')
 	};
-	//@ts-ignore
-	return characterData = {...characterData, ...pvpData};
+	return {...rioData, ...pvpData};
 }
 
-async function fetchRaiderioData(searchDetails: SearchDetails): Promise<RaiderioData|undefined> {
+async function fetchRaiderioData(searchDetails: SearchDetails): Promise<RaiderioData> {
 	return fetch('https://raider.io/api/v1/characters/profile?region='+searchDetails.server+'&realm='+searchDetails.realm+'&name='+searchDetails.name+'&fields=gear%2Cguild%2Cmythic_plus_scores_by_season%3Acurrent%2Cmythic_plus_best_runs%2Craid_progression')
 		.then(response => response.json())
 		.then(data => data)
