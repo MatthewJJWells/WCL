@@ -2,7 +2,7 @@
 import React, {useState} from 'react';
 import './styles.css';
 import {Character} from './type';
-import apiCalls from './apiCalls';
+import { apiCalls } from './apiCalls';
 import Rio from './Rio/index';
 import PVP from './PVP/index';
 import Logs from './Logs/index';
@@ -70,16 +70,16 @@ const Main: React.FC<{}> = () => {
 					<button className='back-button' onClick={handleReturn}>Back to Search</button>
 				</div>}
 			</div>
-			{character && 
+			{character &&
       <div className='character-data'>
-      	<div className='data-box'>   
+      	<div className='data-box'>
       		<Rio character={character}/>
       	</div>
       	<div className='data-box'>
       		<Logs character={character}/>
       	</div>
       	<div className='data-box'>
-      		<PVP character={character}/> 
+      		<PVP character={character}/>
       	</div>
       </div>}
 		</div>
