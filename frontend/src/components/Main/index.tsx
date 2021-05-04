@@ -9,8 +9,8 @@ import Logs from './Logs/index';
 
 const Main: React.FC<{}> = () => {
 
-	const [searchName, setSearchName] = useState('airling');
-	const [searchRealm, setSearchRealm] = useState('tarren-mill');
+	const [searchName, setSearchName] = useState(''); //'airling'
+	const [searchRealm, setSearchRealm] = useState(''); //'tarren-mill'
 	const [searchServer, setSearchServer] = useState('eu');
 	const [character, setCharacter] = useState<Character>();
 
@@ -29,6 +29,8 @@ const Main: React.FC<{}> = () => {
 	function handleReturn() {
 		setCharacter(undefined);
 	}
+
+	//  
 
 	function handleSubmit (e:React.SyntheticEvent) {
 		e.preventDefault();
