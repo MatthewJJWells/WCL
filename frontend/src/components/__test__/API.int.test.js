@@ -1,21 +1,49 @@
 import { fetchRaiderioData } from '../Main/apiCalls';
-import * as mockData from './mocks.RaiderAPI.json';
-
+import * as mockCharacterData from './mocks.RaiderAPI.json';
+import * as mockRealmError from './mockRealmError.json';
+import * as mockNameError from './mockNameError.json';
 require('jest-fetch-mock').enableMocks();
 
 //Case 1: Test whether data shows up in conmponent defined by search parameters
-it('First api test', () => {
-	fetch.mockOnce(JSON.stringify(mockData));
-	fetchRaiderioData({
-		server:'eu',
-		realm:'tarren-mill',
-		name:'airling'
-	})
-		.then(res => {
-			expect(res).toEqual(mockData);
+describe('fetchRaideriodata tests', () => {
+	it('Provided the correct data, the function returns a character object', () => {
+		fetch.mockOnce(JSON.stringify(mockCharacterData));
+		fetchRaiderioData({
+			server:'eu',
+			realm:'tarren-mill',
+			name:'airling'
 		})
-		.catch(error => console.error(error));
+			.then(res => {
+				expect(res).toEqual(mockCharacterData);
+			})
+			.catch(error => console.error(error));
+	});
+
+	it('Provided an incorrect realm or name, reroutes the user to a not found page', () => {
+		fetch.mockOnce(JSON.stringify(mockRealmError));
+		fetchRaiderioData({
+			server:'eu',
+			realm:'wrongrealmname',
+			name:'airling'
+		})
+			.then(res => {
+				expect(res.message).toContain('Failed to find realm');
+			})
+			.catch(error => console.error(error));
+		fetch.mockOnce(JSON.stringify(mockNameError));
+		fetchRaiderioData({
+			server:'eu',
+			realm:'tarren-mill',
+			name:'invalidname'
+		})
+			.then(res => {
+				expect(res.message).toBe('Could not find requested character');
+			})
+			.catch(error => console.error(error));
+	});
 });
+
+
 
 // Case 2: All the data returned is wrong - how does the site handle the errors? (should display an error page or alert)
 // Case 3: The blizzard api returns the wrong data.
