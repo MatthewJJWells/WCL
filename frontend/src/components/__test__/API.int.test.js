@@ -1,24 +1,31 @@
 // import { render } from '@testing-library/react';
 // import React from 'react';
-import { unmountComponentAtNode } from 'react-dom';
+// import { unmountComponentAtNode } from 'react-dom';
+import { fetchRaiderioData } from '../Main/apiCalls';
 // import Main from '../Main/index';
 // import * as raiderMocks from './mocks.RaiderAPI.json';
 // import { fetchRaiderioData } from '../Main/apiCalls';
 require('jest-fetch-mock').enableMocks();
 
-let container = null;
-beforeEach(() => {
-	container = document.createElement('div');
-	document.body.appendChild(container);
+// let container = null;
+// beforeEach(() => {
+// 	container = document.createElement('div');
+// 	document.body.appendChild(container);
+// });
+
+// afterEach(() => {
+// 	unmountComponentAtNode(container);
+// 	container.remove();
+// 	container = null;
+// });
+
+//Case 1: Test whether data shows up in conmponent defined by search parameters
+it('', async () => {
+	const mockedRaider = await fetch.mockResponse(() => fetchRaiderioData()
+		.then(res => ({ body: res})));
+	console.log(mockedRaider);
+	// expect (mockedRaider).toEqual()
 });
-
-afterEach(() => {
-	unmountComponentAtNode(container);
-	container.remove();
-	container = null;
-});
-
-
 
 // Case 1: Test that correct input returns correct data from fetchRaiderioData
 // it('', async () => {
@@ -30,7 +37,7 @@ afterEach(() => {
 // 	expect (raiderdata).toEqual(raiderMocks);
 // });
 
-jest.mock;
+
 // Case 2: All the data returned is wrong - how does the site handle the errors? (should display an error page or alert)
 // Case 3: The blizzard api returns the wrong data.
 // Case 4: The raider api returns the wrong data
