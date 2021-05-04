@@ -1,13 +1,20 @@
 import { fetchRaiderioData } from '../Main/apiCalls';
+import * as mockData from './mocks.RaiderAPI.json';
 
 require('jest-fetch-mock').enableMocks();
 
 //Case 1: Test whether data shows up in conmponent defined by search parameters
-it('', async () => {
-	const mockedRaider = await fetch.mockResponse(() => fetchRaiderioData()
-		.then(res => ({ body: res})));
-	console.log(mockedRaider);
-	// expect (mockedRaider).toEqual()
+it('First api test', () => {
+	fetch.mockOnce(JSON.stringify(mockData));
+	fetchRaiderioData({
+		server:'eu',
+		realm:'tarren-mill',
+		name:'airling'
+	})
+		.then(res => {
+			expect(res).toEqual(mockData);
+		})
+		.catch(error => console.error(error));
 });
 
 // Case 2: All the data returned is wrong - how does the site handle the errors? (should display an error page or alert)
