@@ -2,7 +2,7 @@
 // import React from 'react';
 import { unmountComponentAtNode } from 'react-dom';
 // import Main from '../Main/index';
-import * as raiderMocks from './mocks.RaiderAPI';
+import * as raiderMocks from './mocks.RaiderAPI.json';
 import { fetchRaiderioData } from '../Main/apiCalls';
 
 
@@ -18,13 +18,16 @@ afterEach(() => {
 	container = null;
 });
 
+
+
 // Case 1: Test that correct input returns correct data from fetchRaiderioData
 it('correctly returns data from fetchRaiderioData', async () => {
 	const raiderdata = await fetchRaiderioData({
 		server:'eu',
 		realm:'tarren-mill',
 		name:'airling'});
-	expect (raiderdata).toBe(raiderMocks);
+	console.log(raiderdata);
+	expect (raiderdata).toEqual(raiderMocks);
 });
 // Case 2: All the data returned is wrong - how does the site handle the errors? (should display an error page or alert)
 // Case 3: The blizzard api returns the wrong data.
