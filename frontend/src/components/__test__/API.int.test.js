@@ -45,37 +45,20 @@ describe('fetchRaideriodata tests', () => {
 	});
 
 	it('Creates the right url provided the searchDetails parameter', () => {
-		fetch.mockOnce(mockCharacterData);
+		fetch.mockOnce(JSON.stringify(mockCharacterData));
 		fetchRaiderioData({
 			server: 'eu',
 			realm: 'tarren-mill',
 			name: 'airling'
 		});
-		expect(fetch).toHaveBeenCalledWith(`https://raider.io/api/v1/characters/profile
-		?region=eu
-		&realm=tarren-mill
-		&name=airling
-		&fields=gear%2Cguild%2Cmythic_plus_scores_by_season%3Acurrent%2Cmythic_plus_best_runs%2Craid_progression`);
+		expect(fetch).toHaveBeenCalledWith('https://raider.io/api/v1/characters/profile?region=eu&realm=tarren-mill&name=airling&fields=gear%2Cguild%2Cmythic_plus_scores_by_season%3Acurrent%2Cmythic_plus_best_runs%2Craid_progression');
 	});
 
 	it ('Creates the right url provided the searchDetails, token and pvpType parameters', () => {
-		fetch.mockOnce(mockGameData);
-		urlFunction({
-			server: 'eu',
-			realm: 'tarren-mill',
-			name: 'airling',
-			pvpType: '2v2',
-			token: 'fliggleflop'
-		});
-		expect(fetch).toHaveBeenCalledWith(
-			`https://
-			eu
-			.api.blizzard.com/profile/wow/character/
-			tarren-mill/
-			airling
-			/pvp-bracket/2v2
-			?namespace=profile-eu
-			&locale=en_US&access_token=fliggleflop`);
+		fetch.mockOnce(JSON.stringify(mockGameData));
+		urlFunction({server: 'eu', realm: 'tarren-mill', name: 'airling'}, 'fliggleflop', '2v2');
+		expect(fetch).toHaveBeenCalledTimes(1);
+		expect(fetch).toHaveBeenCalledWith('https://eu.api.blizzard.com/profile/wow/character/tarren-mill/airling/pvp-bracket/2v2?namespace=profile-eu&locale=en_US&access_token=fliggleflop');
 	});
 });
 
