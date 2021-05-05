@@ -1,7 +1,9 @@
-import { fetchRaiderioData } from '../Main/apiCalls';
+import { fetchRaiderioData, urlFunction } from '../Main/apiCalls';
 import * as mockCharacterData from './mocks.RaiderAPI.json';
 import * as mockRealmError from './mockRealmError.json';
 import * as mockNameError from './mockNameError.json';
+import * as mockGameData from './mocks.BlizzardAPI.json';
+
 require('jest-fetch-mock').enableMocks();
 
 //Case 1: Test whether data shows up in conmponent defined by search parameters
@@ -55,9 +57,27 @@ describe('fetchRaideriodata tests', () => {
 		&name=airling
 		&fields=gear%2Cguild%2Cmythic_plus_scores_by_season%3Acurrent%2Cmythic_plus_best_runs%2Craid_progression`);
 	});
+
+	it ('Creates the right url provided the searchDetails, token and pvpType parameters', () => {
+		fetch.mockOnce(mockGameData);
+		urlFunction({
+			server: 'eu',
+			realm: 'tarren-mill',
+			name: 'airling',
+			pvpType: '2v2',
+			token: 'fliggleflop'
+		});
+		expect(fetch).toHaveBeenCalledWith(
+			`https://
+			eu
+			.api.blizzard.com/profile/wow/character/
+			tarren-mill/
+			airling
+			/pvp-bracket/2v2
+			?namespace=profile-eu
+			&locale=en_US&access_token=fliggleflop`);
+	});
 });
-
-
 
 // Case 2: All the data returned is wrong - how does the site handle the errors? (should display an error page or alert)
 // Case 3: The blizzard api returns the wrong data.

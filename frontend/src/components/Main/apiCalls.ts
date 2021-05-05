@@ -39,7 +39,15 @@ export async function fetchAuthToken():Promise<string>{
 }
 
 export async function urlFunction(searchDetails: SearchDetails, token:string, pvpType:string): Promise<MatchStats> {
-	const url = `https://${searchDetails.server}.api.blizzard.com/profile/wow/character/${searchDetails.realm}/${searchDetails.name}/pvp-bracket/${pvpType}?namespace=profile-${searchDetails.server}&locale=en_US&access_token=${token}`;
+	const url = `https://
+	${searchDetails.server}
+	.api.blizzard.com/profile/wow/character/
+	${searchDetails.realm}/
+	${searchDetails.name}
+	/pvp-bracket/${pvpType}
+	?namespace=profile-${searchDetails.server}
+	&locale=en_US&access_token=${token}
+	`;
 	return fetch(url)
 		.then(response => response.json())
 		.catch(error => console.error(error));
