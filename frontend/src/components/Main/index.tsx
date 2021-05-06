@@ -1,7 +1,7 @@
 /* eslint-disable no-mixed-spaces-and-tabs */
-import React, {useState} from 'react';
+import React, { useState } from 'react';
 import './styles.css';
-import {Character} from './type';
+import { Character } from './type';
 import { apiCalls } from './apiCalls';
 import Rio from './Rio/index';
 import PVP from './PVP/index';
