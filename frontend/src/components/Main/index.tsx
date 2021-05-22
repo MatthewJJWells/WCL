@@ -1,11 +1,12 @@
 /* eslint-disable no-mixed-spaces-and-tabs */
-import React, {useState} from 'react';
+import React, { useState } from 'react';
 import './styles.css';
-import {Character} from './type';
-import apiCalls from './apiCalls';
+import { Character } from './type';
+import { apiCalls } from './apiCalls';
 import Rio from './Rio/index';
 import PVP from './PVP/index';
 import Logs from './Logs/index';
+// import { render } from '@testing-library/react';
 
 const Main: React.FC<{}> = () => {
 
@@ -52,8 +53,10 @@ const Main: React.FC<{}> = () => {
 						<option className='option-eu' value='eu'>Europe</option>
 						<option className='option-us' value='us'>United States</option>
 					</select>
-					<input className='realm-form' form="text" value={searchRealm} placeholder='Server name...' onChange={handleChangeRealm}></input>
-					<input className='name-form' form="text" value={searchName} placeholder='Character name...' onChange={handleChangeName}></input>
+					<input className='realm-form' form="text" value={searchRealm} placeholder='Server name...'
+						onChange={handleChangeRealm}></input>
+					<input className='name-form' form="text" value={searchName} placeholder='Character name...'
+						onChange={handleChangeName}></input>
 					<button type='submit' className='button'>Search</button>
 				</form>}
 				{character &&  <div className='character-details'>
@@ -70,18 +73,22 @@ const Main: React.FC<{}> = () => {
 					<button className='back-button' onClick={handleReturn}>Back to Search</button>
 				</div>}
 			</div>
-			{character && 
+			{character &&
       <div className='character-data'>
-      	<div className='data-box'>   
+      	<div className='data-box'>
       		<Rio character={character}/>
       	</div>
       	<div className='data-box'>
       		<Logs character={character}/>
       	</div>
       	<div className='data-box'>
-      		<PVP character={character}/> 
+      		<PVP character={character}/>
       	</div>
       </div>}
+			{character?.name === 'floppp' &&
+			<div className='bully user'>
+				<h1>THIS CHARACTER IS NOT FOUND AND IT IS ALMOST CERTAINLY YOUR FAULT</h1>
+			</div>}
 		</div>
 	);
 };
