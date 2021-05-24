@@ -1,0 +1,20 @@
+{
+  "key": {
+    "href": "https://us.api.blizzard.com/data/wow/journal-instance/758?namespace=static-us"
+  },
+  "name": {
+    "en_US": "Icecrown Citadel",
+    "es_MX": "Ciudadela de la Corona de Hielo",
+    "pt_BR": "Cidadela da Coroa de Gelo",
+    "de_DE": "Die Eiskronenzitadelle",
+    "en_GB": "Icecrown Citadel",
+    "es_ES": "Ciudadela de la Corona de Hielo",
+    "fr_FR": "Citadelle de la Couronne de glace",
+    "it_IT": "Rocca della Corona di Ghiaccio",
+    "ru_RU": "Цитадель Ледяной Короны",
+    "ko_KR": "얼음왕관 성채",
+    "zh_TW": "冰冠城塞",
+    "zh_CN": "冰冠堡垒"
+  },
+  "id": 758
+}
