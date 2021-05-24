@@ -1,7 +1,7 @@
 # WCL
-WCL allows users to search for their World of Warcraft characters and wll be returned results for their Raider.io score, Raid progression and PVP ratings. 
+WCL allows users to search for their World of Warcraft characters and will be returned results for their Raider.io score, Raid progression and PVP ratings. 
 
-![WCL-Screenshot](https://github.com/MatthewJJWells/WCL/blob/main/frontend/src/images/Screen%20Shot%202021-05-24%20at%2013.28.08.png)
+![WCL-Screenshot](https://github.com/MatthewJJWells/WCL/blob/main/frontend/src/images/Screenshot%202021-05-24%20at%2013.50.26.png)
 
 ## Getting Started
 
@@ -10,6 +10,7 @@ WCL allows users to search for their World of Warcraft characters and wll be ret
 ```
 git clone https://github.com/MatthewJJWells/WCL.git
 cd WCL
+cd frontend
 ```
 
 2. Inside the project's root directory, create a .env file for your blizzard authorization key that you will need to obtain from [Blizzard](https://develop.battle.net/):
@@ -25,7 +26,7 @@ REACT_APP_AUTH_KEY=blizzard-authorization-key
 npm install
 ```
 
-4. Start WCL in Expo's development server by running
+4. Start WCL by running:
 
 ```
 npm start
