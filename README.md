@@ -12,7 +12,7 @@ git clone https://github.com/MatthewJJWells/WCL.git
 cd WCL
 ```
 
-2. Inside the project's root directory, create a .env file for your IP address and desired port number:
+2. Inside the project's root directory, create a .env file for your blizzard authorization key that you will need to obtain from [Blizzard](https://develop.battle.net/):
 
 ```
 REACT_APP_AUTH_KEY=blizzard-authorization-key
