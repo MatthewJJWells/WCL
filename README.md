@@ -1,5 +1,5 @@
 # WCL
-WCL allows users to search for common faults with a specific car or log a fault to see if other users have similar issues. 
+WCL allows users to search for their World of Warcraft characters and wll be returned results for their Raider.io score, Raid progression and PVP ratings. 
 
 ![WCL-Screenshot](https://github.com/MatthewJJWells/WCL/blob/main/frontend/src/images/Screen%20Shot%202021-05-24%20at%2013.28.08.png)
 
