@@ -1,7 +1,7 @@
 # WCL
 WCL allows users to search for common faults with a specific car or log a fault to see if other users have similar issues. 
 
-![WCL-Screenshot](https://github.com/MatthewJJWells/WCL/blob/main/frontend/src/images/Screen%20Shot%202021-05-24%20at%2013.25.32.png)
+![WCL-Screenshot](https://github.com/MatthewJJWells/WCL/blob/main/frontend/src/images/Screen%20Shot%202021-05-24%20at%2013.28.08.png)
 
 ## Getting Started
 
