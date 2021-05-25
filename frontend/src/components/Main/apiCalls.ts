@@ -1,71 +1,41 @@
-import { Character, PVPData, RaiderioData} from './type';
+import { Character, PVPData, MatchStats, SearchDetails, RaiderioData} from './type';
 
-interface SearchDetails {
-  server: string;
-  realm: string;
-  name: string;
+export async function apiCalls(searchDetails: SearchDetails): Promise<Character> {
+	const token = await fetchAuthToken();
+	const rioData: RaiderioData = await fetchRaiderioData(searchDetails);
+	const pvpData: PVPData = {
+		twos: await urlFunction(searchDetails, token, '2v2'),
+		threes: await urlFunction(searchDetails, token, '3v3'),
+		rbgs: await urlFunction(searchDetails, token, 'rbg')
+	};
+	return {...rioData, ...pvpData};
 }
 
-export default async function apiCalls(searchDetails: SearchDetails): Promise<Character|undefined> {
-	let characterData: Character|undefined;
-	await fetchRaiderioData(searchDetails)
-		.then(rioData => {
-			if (rioData) {
-				// @ts-ignore
-				characterData = {...rioData};
-			}
-		});
-	await fetchPVPData(searchDetails)
-		.then(PVPData => {
-			if (PVPData) {
-				//@ts-ignore
-				characterData = {...characterData, ...PVPData};
-			}
-		});
-	console.log(characterData);
-	return characterData;
-}
-
-async function fetchRaiderioData(searchDetails: SearchDetails): Promise<RaiderioData|undefined> {
-	let charData;
-	await fetch('https://raider.io/api/v1/characters/profile?region='+searchDetails.server+'&realm='+searchDetails.realm+'&name='+searchDetails.name+'&fields=gear%2Cguild%2Cmythic_plus_scores_by_season%3Acurrent%2Cmythic_plus_best_runs%2Craid_progression')
+export async function fetchRaiderioData(searchDetails: SearchDetails): Promise<RaiderioData> {
+	return fetch(`https://raider.io/api/v1/characters/profile?region=${searchDetails.server}&realm=${searchDetails.realm}&name=${searchDetails.name}&fields=gear%2Cguild%2Cmythic_plus_scores_by_season%3Acurrent%2Cmythic_plus_best_runs%2Craid_progression`)
 		.then(response => response.json())
-		.then(data => charData = data);
-	return charData;
+		.then(data => data)
+		.catch(error => console.error(error));
 }
 
-async function fetchPVPData(searchDetails: SearchDetails): Promise<PVPData|undefined> {
-	let token;
-	await fetch('https://us.battle.net/oauth/token', {
+export async function fetchAuthToken():Promise<string>{
+	console.log(process.env.REACT_APP_AUTH_KEY);
+	return fetch('https://us.battle.net/oauth/token', {
 		body: 'grant_type=client_credentials',
 		headers: {
-			Authorization: 'Basic YzQ3ZmQ3ZGJiZGFlNDIzYTkyZDM3YTZiNDk5MTk1ODY6U3RKRXlOQmtYMHJ6dVdpNFB1a1ZGVTZUcmlmODRvYmU=',
+			Authorization: 'Basic ' + process.env.REACT_APP_AUTH_KEY,
 			'Content-Type': 'application/x-www-form-urlencoded'
 		},
 		method: 'POST'
 	})
 		.then(response => response.json())
-		.then(data => token = data.access_token);
-	let twosData;
-	const urlTwos = 'https://'+searchDetails.server+'.api.blizzard.com/profile/wow/character/'+searchDetails.realm+'/'+searchDetails.name+'/pvp-bracket/2v2?namespace=profile-'+searchDetails.server+'&locale=en_US&access_token='+token;  
-	await fetch(urlTwos)
+		.then(data => data.access_token)
+		.catch(error => console.error(error));
+}
+
+export async function urlFunction(searchDetails: SearchDetails, token:string, pvpType:string): Promise<MatchStats> {
+	const url = `https://${searchDetails.server}.api.blizzard.com/profile/wow/character/${searchDetails.realm}/${searchDetails.name}/pvp-bracket/${pvpType}?namespace=profile-${searchDetails.server}&locale=en_US&access_token=${token}`;
+	return fetch(url)
 		.then(response => response.json())
-		.then(data => twosData = data);
-	let threesData;
-	const urlThrees = 'https://'+searchDetails.server+'.api.blizzard.com/profile/wow/character/'+searchDetails.realm+'/'+searchDetails.name+'/pvp-bracket/3v3?namespace=profile-'+searchDetails.server+'&locale=en_US&access_token='+token;  
-	await fetch(urlThrees)
-		.then(response => response.json())
-		.then(data => threesData = data);
-	let rbgData;
-	const urlRbg = 'https://'+searchDetails.server+'.api.blizzard.com/profile/wow/character/'+searchDetails.realm+'/'+searchDetails.name+'/pvp-bracket/rbg?namespace=profile-'+searchDetails.server+'&locale=en_US&access_token='+token;  
-	await fetch(urlRbg)
-		.then(response => response.json())
-		.then(data => rbgData = data);
-	const pvpData = {
-		twos: twosData,
-		threes: threesData,
-		rbgs: rbgData
-	};
-	//@ts-ignore
-	return pvpData;
+		.catch(error => console.error(error));
 }
