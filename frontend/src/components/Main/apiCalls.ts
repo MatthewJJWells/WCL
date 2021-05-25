@@ -19,6 +19,7 @@ export async function fetchRaiderioData(searchDetails: SearchDetails): Promise<R
 }
 
 export async function fetchAuthToken():Promise<string>{
+	console.log(process.env.REACT_APP_AUTH_KEY);
 	return fetch('https://us.battle.net/oauth/token', {
 		body: 'grant_type=client_credentials',
 		headers: {
